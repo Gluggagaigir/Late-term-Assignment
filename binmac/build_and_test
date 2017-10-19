@@ -1,0 +1,5 @@
+#!/bin/bash
+./binmac/clean1
+./binmac/compile1
+./binmac/compiletest1
+./binmac/unittest1
