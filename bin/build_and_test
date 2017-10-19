@@ -1,6 +1,0 @@
-#!/bin/bash
-
-./bin/clean
-./bin/compile
-./bin/compiletest
-./bin/unittest
