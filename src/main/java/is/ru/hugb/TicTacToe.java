@@ -13,7 +13,9 @@ package is.ru.hugb;
 import java.util.Scanner;
 
 public class TicTacToe {
-	
+    
+    static Scanner reader = new Scanner(System.in);
+
 	public static void main(String[] args) {
         //Variables
         char[][] field = new char[3][3];
@@ -25,7 +27,28 @@ public class TicTacToe {
         String player2 = "";
         int turn = 0;
         Boolean gameOver = false;
-    
+        
+        //Open scanner
+
+        //Choosing side
+        System.out.println("Play as O or X"); // Display the string.
+        while(true){
+            player1 = reader.next();
+            player1 = checkIfCorrectPlayer(player1);
+            if(player1.equals("X")||player1.equals("O")){
+                break;
+            }else{
+                System.out.println("You picked " + player1 + ". Please pick O or X");
+            }
+        }
+        System.out.println("Thank you, you are playing as " + player1 );
+        if(player1.equals("X")){
+            player2 = "O";
+        } else {
+            player2 = "X";
+        }
+
+        
     }
 
 
@@ -39,5 +62,13 @@ public class TicTacToe {
             }
         }
     return false;
+    }
+    public static String checkIfCorrectPlayer(String player1){
+        if(player1.equals("x") || player1.equals("X")  ){
+            return "X";
+        } else if( player1.equals("o") || player1.equals("O")){
+            return "O";
+        }
+        return player1;
     }
 }
