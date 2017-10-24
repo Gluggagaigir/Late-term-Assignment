@@ -47,7 +47,6 @@ public class TicTacToe {
         } else {
             player2 = "X";
         }
-
         
     }
 
