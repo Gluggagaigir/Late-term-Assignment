@@ -12,12 +12,15 @@ Ef enginn vann er spilað aftur*/
 package is.ru.hugb;
 import java.util.Scanner;
 
+import static spark.Spark.*;
+
 public class TicTacToe {
     
     static Scanner reader = new Scanner(System.in);
 
 	public static void main(String[] args) {
         //Variables
+        /*
         char[][] field = new char[3][3];
         Boolean fieldFull = fillField(field);
         if(fieldFull == false){
@@ -99,8 +102,21 @@ public class TicTacToe {
             }
         }
         reader.close();
+        */
+        port(getHerokuPort());
+        get("/", (req, res) -> {
+            return "No route specified.";
+        });
+        get("/test", (req, res) -> "bla";
     }
 
+    static int getHerokuPort() {
+        ProcessBuilder psb = new ProcessBuilder();
+        if (psb.environment().get("PORT") != null) {
+            return Integer.parseInt(psb.environment().get("PORT"));
+        }
+        return 4567;
+    }
 
     public static Boolean fillField(char[][] field){
         int counter = 1;

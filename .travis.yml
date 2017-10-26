@@ -1,3 +1,10 @@
 language: java
 before_install:
  - chmod +x gradlew
+deploy:
+  provider: heroku
+  api_key:
+    secure: b4bi33/hG7hsBvHlfl1m7RTcTgdTtemW+l2YikveX6VHM91QDk5pa4sLed/OyYritO1sDEkrKwOUsZCLitRctHJzauG6WLhfLpKlmAW0y57/zthGqLOifM+rjo/fRIm8M2b2JJNsGHZrMoPRD7azFdwQV5Q+yVtDJaXNhFNXuPUqiJKKsIDblq1FNIxfWfgn2bKflOmTdELujirIzR/5DXnKS/Hh6CshAuOMqTkzjuSop9T6zxeCdfSBHBcFnDdd668R7IuALyLdHr97twXlHryF0DMYDmdgHhRUFD/C0hrPvcD4gJZdPr1/de5xCi3cuFcTjjlqakYQxG7DZqhLtYAS2jZ3xsyywrF2cdYbzwShlCojX1TMLBUcJU14ug/+z8DgMhPEBsBqH/ikdR3koW81WWdn+SeGcz42DOxaR1KjdvIxXuuT68XXx5Rnk3N78OODcQWadzqpuKJnHyZ2Lt2pIEIoqnL7OYopqT0BOGGI7l8KeoItL/O+abGugU57zpg4PW7ZP6VidkxzSV5FFWeU/5kwLx36JiZTXtJs/BluFZy/TJ713wsujsbMyAx7q8hHEgmdNpEXTYvwZ62XBXKbJp7aSaOcOrpy2era7Q9eCc+A1OJqqLf1oDSAayCKp/byUBkuOZ7xN7d2RogFH+vbv8ek0je4eAbbepW6W2I=
+  app: 
+    herokutry: gluggagaigir-staging
+    production: gluggagaigir-production
