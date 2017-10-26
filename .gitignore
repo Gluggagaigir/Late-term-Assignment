@@ -5,6 +5,8 @@
 # Compiled class file
 *.class
 
+.gradle/.DS_Store
+
 # Log file
 *.log
 
