@@ -6,7 +6,7 @@ import java.util.Scanner;
 import java.io.ByteArrayInputStream;
 
 public class TicTacToeTest {
-    
+
     @Test
     public void testFillField(){
         char[][] insertField = new char[3][3];
@@ -33,6 +33,25 @@ public class TicTacToeTest {
         }
         assertEquals(true, TicTacToe.findAndPlaceInField("x", "3", insertField));
     }
+
+    @Test
+    public void testCheckWinConditions(){
+        char[][] insertField = new char[3][3];
+        insertField[0][0] = 'X';
+        insertField[0][1] = 'X';
+        insertField[0][2] = 'X';
+
+        char[][] insertField1 = new char[3][3];
+
+        char[][] insertField2 = new char[3][3];
+        insertField2[0][0] = 'O';
+        insertField2[0][1] = 'O';
+        insertField2[0][2] = 'O';
+
+        assertEquals('X', TicTacToe.checkWinConditions(insertField));
+        assertEquals('5', TicTacToe.checkWinConditions(insertField1));
+    }
+
 
     /* Virkar ekki að testa System.out eða void :(
     @Test

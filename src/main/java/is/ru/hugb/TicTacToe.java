@@ -64,9 +64,41 @@ public class TicTacToe {
                     System.out.println("You picked " + tempString + ". Please pick number in the field");
                 }
             } else {
-                System.out.println("Player 2");
+                while(true){
+                    String tempString = "";
+                    System.out.println(player2 + " pick a number to play: ");
+                    tempString = reader.next();
+                    Boolean found = findAndPlaceInField(player2, tempString, field);
+                    if(found){
+                        break;
+                    }
+                    System.out.println("Pick an empty field");
+                }
+            }
+
+            char winner = checkWinConditions(field);
+            if(winner == player1.charAt(0)){
+                gameOver = true;
+                System.out.println(player1 + " won!!!!");
+                printField(field);
+            } else if(winner == player2.charAt(0)){
+                gameOver = true;
+                System.out.println(player1 + " won!!!!");
+                printField(field);
+            }
+
+            if(gameOver){
+                break;
+            }
+
+            if(turn == 9){
+                System.out.println("DRAW!!!");
+                System.out.println("Game is restarting");
+                turn = 0;
+                fillField(field);
             }
         }
+        reader.close();
     }
 
 
@@ -110,4 +142,62 @@ public class TicTacToe {
         }
         return false;
     }
+
+    public static char checkWinConditions(char[][]field){
+        //Láréttar línur
+        if(field[0][0] == 'X'  && field[0][1] == 'X' && field[0][2] == 'X'){
+            //Efst lágrétt
+            return 'X';
+        }else if(field[1][0] == 'X' && field[1][1] == 'X' && field[1][2] == 'X'){
+            //Miðja lárétt
+            return 'X';
+        }else if(field[2][0] == 'X' && field[2][1] == 'X' && field[2][2] == 'X'){
+            //Neðst lárétt
+            return 'X';
+        }else if(field[0][0] == 'X' && field[1][0] == 'X' && field[2][0] == 'X'){
+            //Vinstri lóðrétt
+            return 'X';
+        }else if(field[0][1] == 'X' && field[1][1] == 'X' && field[2][1] == 'X'){
+            //Miðja lóðrétt
+            return 'X';
+        }else if(field[0][2] == 'X' && field[1][2] == 'X' && field[2][2] == 'X'){
+            //Hægri lóðrétt
+            return 'X';
+        }else if(field[0][0] == 'X' && field[1][1] == 'X' && field[2][2] == 'X'){
+            //Kross niður til vinstri
+            return 'X';
+        }else if(field[2][0] == 'X' && field[1][1] == 'X' && field[0][2] == 'X'){
+            //kross upp til vinstri
+            return 'X';
+        }
+
+        if(field[0][0] == 'O'  && field[0][1] == 'O' && field[0][2] == 'O'){
+            //Efst lágrétt
+            return 'O';
+        }else if(field[1][0] == 'O' && field[1][1] == 'O' && field[1][2] == 'O'){
+            //Miðja lárétt
+            return 'O';
+        }else if(field[2][0] == 'O' && field[2][1] == 'O' && field[2][2] == 'O'){
+            //Neðst lárétt
+            return 'O';
+        }else if(field[0][0] == 'O' && field[1][0] == 'O' && field[2][0] == 'O'){
+            //Vinstri lóðrétt
+            return 'O';
+        }else if(field[0][1] == 'O' && field[1][1] == 'O' && field[2][1] == 'O'){
+            //Miðja lóðrétt
+            return 'O';
+        }else if(field[0][2] == 'O' && field[1][2] == 'O' && field[2][2] == 'O'){
+            //Hægri lóðrétt
+            return 'O';
+        }else if(field[0][0] == 'O' && field[1][1] == 'O' && field[2][2] == 'O'){
+            //Kross niður til vinstri
+            return 'O';
+        }else if(field[2][0] == 'O' && field[1][1] == 'O' && field[0][2] == 'O'){
+            //kross upp til vinstri
+            return 'O';
+        }
+        //Skilar þessu til að vita að enginn er búinn að vinna
+        return '5';
+    }
+
 }
