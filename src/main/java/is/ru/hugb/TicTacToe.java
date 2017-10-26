@@ -21,7 +21,8 @@ public class TicTacToe {
         char[][] field = new char[3][3];
         Boolean fieldFull = fillField(field);
         if(fieldFull == false){
-            //TODO -- throw exception
+            System.out.println("Field not full");
+            return;
         }
         String player1 = "";
         String player2 = "";
@@ -47,7 +48,25 @@ public class TicTacToe {
         } else {
             player2 = "X";
         }
-        
+        while(true){
+            turn++;
+            printField(field);
+            if(turn%2 == 1){
+                while(true){
+                    String tempString = "";
+                    System.out.println(player1 + " pick a number to play: ");
+                    tempString = reader.next();
+                    //ToDO: Validate'a strenginn
+                    Boolean found = findAndPlaceInField(player1, tempString, field);
+                    if(found){
+                        break;
+                    }
+                    System.out.println("You picked " + tempString + ". Please pick number in the field");
+                }
+            } else {
+                System.out.println("Player 2");
+            }
+        }
     }
 
 
@@ -57,11 +76,11 @@ public class TicTacToe {
             for(int j = 0; j < 3; j++){
                 field[i][j] = (char) (counter+48);
                 counter++;
-                return true;
             }
         }
-    return false;
+        return true;
     }
+
     public static String checkIfCorrectPlayer(String player1){
         if(player1.equals("x") || player1.equals("X")  ){
             return "X";
@@ -69,5 +88,26 @@ public class TicTacToe {
             return "O";
         }
         return player1;
+    }
+
+    public static void printField(char[][] field){
+        System.out.println("-----");
+        for(int i = 0; i < 3; i++){
+            System.out.printf(field[i][0] + "|" + field[i][1] + "|" + field[i][2]);
+            System.out.println("");
+            System.out.println("-----");
+        }
+    }
+
+    public static Boolean findAndPlaceInField(String player, String tempNum, char[][] field){
+        for(int i = 0; i < 3; i++){
+            for(int j = 0; j < 3; j++){
+                if(field[i][j] == tempNum.charAt(0)){
+                    field[i][j] = player.charAt(0);
+                    return true;
+                }
+            }
+        }
+        return false;
     }
 }
