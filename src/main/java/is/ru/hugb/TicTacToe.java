@@ -107,7 +107,7 @@ public class TicTacToe {
         get("/", (req, res) -> {
             return "No route specified.";
         });
-        get("/test", (req, res) -> "bla";
+        get("/test", (req, res) -> "bla");
     }
 
     static int getHerokuPort() {
