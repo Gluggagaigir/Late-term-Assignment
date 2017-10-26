@@ -32,4 +32,12 @@ dependencies {
 
     // Use JUnit test framework
     testImplementation 'junit:junit:4.12'
+
+    compile 'com.sparkjava:spark-core:2.6.0'
+
+    compile 'com.heroku.sdk:heroku-jdbc:0.1.1'
+}
+
+task stage {
+  dependsOn installDist
 }
