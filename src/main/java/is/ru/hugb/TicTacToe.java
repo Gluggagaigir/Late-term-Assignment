@@ -59,6 +59,13 @@ public class TicTacToe {
             return printField(field);
         });
 
+        get("/reset", (req, res) -> {
+            turn[0] = 1;
+            fillField(field);
+            res.redirect("/");
+            return null;
+        });
+        
         get("/:number", (req, res) -> {
             boolean valid = true;
             if (turn[0] % 2 == 1) {
