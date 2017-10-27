@@ -20,8 +20,67 @@ public class TicTacToe {
 
 	public static void main(String[] args) {
         //Variables
-        /*
+        
         char[][] field = new char[3][3];
+        fillField(field);
+
+        String player1 = "X";
+        String player2 = "O";
+        int[] turn = {1};
+
+        port(getHerokuPort());
+
+        get("/", (req, res) -> {
+            String ret = "";
+            Boolean gameOver = false;
+
+            char winner = checkWinConditions(field);
+            if(winner == player1.charAt(0)){
+                gameOver = true;
+                ret = player1 + " won!!!!";
+            } else if(winner == player2.charAt(0)){
+                gameOver = true;
+                ret = player2 + " won!!!!";
+            }
+
+            if(gameOver){
+                turn[0] = 1;
+                fillField(field);
+                return ret;
+            }
+
+            if(turn[0] == 10){
+                ret = "DRAW!!!";
+                turn[0] = 1;
+                fillField(field);
+                return ret;
+            }
+
+            return printField(field);
+        });
+
+        get("/:number", (req, res) -> {
+            boolean valid = true;
+            if (turn[0] % 2 == 1) {
+                valid = findAndPlaceInField(player1, req.params(":number"), field);
+            }
+            else {
+                valid = findAndPlaceInField(player2, req.params(":number"), field);
+            }
+            if (valid) {
+                turn[0] = turn[0] + 1;
+                res.redirect("/");
+                return null;
+            }
+            else {
+                return "Invalid number";
+            }
+        });
+
+
+        //Console version
+
+        /*char[][] field = new char[3][3];
         Boolean fieldFull = fillField(field);
         if(fieldFull == false){
             System.out.println("Field not full");
@@ -101,13 +160,7 @@ public class TicTacToe {
                 fillField(field);
             }
         }
-        reader.close();
-        */
-        port(getHerokuPort());
-        get("/", (req, res) -> {
-            return "No route specified.";
-        });
-        get("/test", (req, res) -> "bla");
+        reader.close();*/
     }
 
     static int getHerokuPort() {
@@ -138,13 +191,21 @@ public class TicTacToe {
         return player1;
     }
 
-    public static void printField(char[][] field){
+    //Console version
+    /*public static void printField(char[][] field){
         System.out.println("-----");
         for(int i = 0; i < 3; i++){
             System.out.printf(field[i][0] + "|" + field[i][1] + "|" + field[i][2]);
             System.out.println("");
             System.out.println("-----");
         }
+    }*/
+    public static String printField(char[][] field){
+        String ret = "";
+        for(int i = 0; i < 3; i++){
+            ret = ret + field[i][0] + "|" + field[i][1] + "|" + field[i][2] + "\n----\n";
+        }
+        return ret;
     }
 
     public static Boolean findAndPlaceInField(String player, String tempNum, char[][] field){
