@@ -50,9 +50,8 @@ $RECYCLE.BIN/
 *.lnk
 
 ### Gradle ###
-.gradle/*
-
 **/build/
+.gradle/*
 
 # Ignore Gradle GUI config
 gradle-app.setting
