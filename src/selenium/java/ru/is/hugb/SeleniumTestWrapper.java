@@ -14,6 +14,7 @@ public abstract class SeleniumTestWrapper {
 
   @BeforeClass
   public static void openBrowser() {
+    System.setProperty("webdriver.chrome.driver", "src/selenium/webdriver/chromedriver.exe");
     driver = new ChromeDriver();
     driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 
@@ -21,7 +22,7 @@ public abstract class SeleniumTestWrapper {
     if (port == null) {
         port = "4567";
     }
-    baseUrl = "http://localhost:" + port;
+    baseUrl = "http://gluggagaigir-staging.herokuapp.com";
   }
 
   @AfterClass
