@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+body{
+ background: #ff21e8;
+}
+
+table {
+    border-collapse: collapse;
+    width: 500px;
+    height: 500px;
+    font-size: 100px;
+    font-family: Comic Sans MS;
+    
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    margin-top: -250px;
+    margin-left: -250px;
+}
+
+td {
+    height: 160px;
+    width: 160px;
+    text-align: center;
+}
+.borderB {
+    border-bottom: 7px solid #ca00bb;
+}
+.borderL {
+    border-left: 7px solid #ca00bb;
+}
+
+td:hover{
+	background-color:#ff59f3
+}
+
+div.message{
+  margin: 0 auto;  
+  
+  font-size: 60px;
+  color: #ca00bb;
+  font-family: Comic Sans MS;
+  
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  margin-top: -350px;
+  margin-left: -110px;
+}
+
+div.button{ 
+  position: relative; 
+  background: #ca00bb;
+  height: 60px;
+  width: 120px;
+  margin: 0 auto;  
+  padding-top: 5px;
+  border-radius: 7px;
+}
+a{
+  text-decoration:none;
+  text-align: center;
+  font-family: Comic Sans MS;
+  font-weight: bold;
+  font-size: 35px;
+  color: #ff21e8;
+  
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  margin-top: 280px;
+  margin-left: -55px;
+}
+
+div.button:hover {
+  border: 2px solid white;
+}
+</style>
+
+</head>
+
+<body>
+	<div class="message"> </div>
+	<table id="TTT">
+		<tr>
+		  <td class="borderB" id ="1"> </td>
+		  <td class="borderB borderL" id ="2"> </td>
+		  <td class="borderB borderL" id ="3"> </td>
+		</tr>
+		<tr>
+		  <td class="borderB" id ="4"> </td>
+		  <td class="borderB borderL" id ="5"> </td>
+		  <td class="borderB borderL" id ="6"> </td>
+		</tr>
+		<tr>
+		  <td id ="7"> </td>
+		  <td class="borderL" id ="8"> </td>
+		  <td class="borderL" id ="9"> </td>
+		</tr>
+	</table>
+
+	<a href="/95346581359763116548">
+		<div class="button">
+		  Reset
+		</div>
+	</a>
+  
+  
+<script>
+var test = document.getElementById('TTT');
+
+function whatClicked(evt) {
+  var elID = evt.target.id;
+  if(elID < 10 && elID > 0){
+	var url = document.URL + elID;
+	window.location.href = url;
+	console.log(url);
+	}
+}
+
+if(test != null){
+	test.addEventListener("click", whatClicked, false);
+}
+</script>
+</body>
+</html>

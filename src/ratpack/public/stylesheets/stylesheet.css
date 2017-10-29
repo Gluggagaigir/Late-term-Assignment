@@ -1,0 +1,33 @@
+body{
+ background: #ff21e8;
+}
+
+table {
+    border-collapse: collapse;
+    width: 500px;
+    height: 500px;
+    font-size: 100px;
+    font-family: Comic Sans MS;
+    
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    margin-top: -250px;
+    margin-left: -250px;
+}
+
+td {
+    height: 160px;
+    width: 160px;
+    text-align: center;
+}
+.borderB {
+    border-bottom: 7px solid #ca00bb;
+}
+.borderL {
+    border-left: 7px solid #ca00bb;
+}
+
+td:hover{
+	background-color:#ff59f3
+}
