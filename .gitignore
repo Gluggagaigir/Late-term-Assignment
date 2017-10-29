@@ -50,10 +50,7 @@ $RECYCLE.BIN/
 *.lnk
 
 ### Gradle ###
-
-.gradle/4.2.1/fileContent/*
-.gradle/4.2.1/taskHistory/*
-.gradle/buildOutputCleanup/buildOutputCleanup.lock
+.gradle
 
 **/build/
 
