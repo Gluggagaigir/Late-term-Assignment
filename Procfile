@@ -1,1 +1,1 @@
-web: build/install/gradle-getting-started/bin/gradle-getting-started
+web: build/install/Late-term-Assignment/bin/Late-term-Assignment

@@ -10,7 +10,7 @@
 apply plugin: 'java-library'
 apply plugin: 'application'
 
-mainClassName = "is.ru.hugb.Main"
+mainClassName = "is.ru.hugb.TicTacToe"
 
 // In this section you declare where to find the dependencies of your project
 repositories {
